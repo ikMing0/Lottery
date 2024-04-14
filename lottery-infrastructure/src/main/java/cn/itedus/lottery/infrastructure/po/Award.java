@@ -19,7 +19,7 @@ import java.util.Date;
 @Accessors(chain = true)
 public class Award {
     private Long id;
-    private Long awardId;
+    private String awardId;
     private Integer awardType;
     private Integer awardCount;
     private String awardName;
