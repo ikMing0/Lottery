@@ -14,6 +14,7 @@ import cn.itedus.lottery.infrastructure.po.StrategyDetail;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import java.util.List;
  * @date：2024-04-13 16:55
  * @description 抽奖执行实现类
  */
+@Component
 public class DrawExecImpl extends AbstractDrawBase {
 
     private Logger logger = LoggerFactory.getLogger(DrawExecImpl.class);
