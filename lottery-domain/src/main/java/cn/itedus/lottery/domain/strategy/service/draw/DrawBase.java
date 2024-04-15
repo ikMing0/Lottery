@@ -27,7 +27,7 @@ public class DrawBase extends DrawConfig {
         if (1 != strategyMode) return;
 
         // 使用 strategyMode 作为键从 drawAlgorithmMap 中检索 IDrawAlgorithm 对象。
-        IDrawAlgorithm drawAlgorithm = drawAlgorithmMap.get(strategyMode);
+        IDrawAlgorithm drawAlgorithm = drawAlgorithmGroup.get(strategyMode);
 
         // 检查给定 strategyId 的速率元组是否已存在于 drawAlgorithm 中。
         // 如果是这样，该方法将立即返回。
