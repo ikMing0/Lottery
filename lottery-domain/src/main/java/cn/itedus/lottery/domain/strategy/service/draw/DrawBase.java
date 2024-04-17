@@ -1,8 +1,8 @@
 package cn.itedus.lottery.domain.strategy.service.draw;
 
 import cn.itedus.lottery.domain.strategy.model.vo.AwardRateInfo;
+import cn.itedus.lottery.domain.strategy.model.vo.StrategyDetailBriefVO;
 import cn.itedus.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
-import cn.itedus.lottery.infrastructure.po.StrategyDetail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class DrawBase extends DrawConfig {
      * @param strategyMode 一个整数，表示策略的模式。
      * @param strategyDetailList StrategyDetail 对象的列表，其中包含有关策略的详细信息。
      */
-    public void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetail> strategyDetailList) {
+    public void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetailBriefVO> strategyDetailList) {
         // 如果策略模式不是 1，则该方法将立即返回。
         if (1 != strategyMode) return;
 
@@ -37,7 +37,7 @@ public class DrawBase extends DrawConfig {
         // 如果速率元组不存在，则该方法将从 strategyDetailList 创建 AwardRateInfo 对象的新列表。
         // 每个 AwardRateInfo 对象都是使用 StrategyDetail 对象中的 awardId 和 awardRate 构建的。
         List<AwardRateInfo> awardRateInfoList = new ArrayList<>(strategyDetailList.size());
-        for (StrategyDetail strategyDetail : strategyDetailList) {
+        for (StrategyDetailBriefVO strategyDetail : strategyDetailList) {
             awardRateInfoList.add(
                     AwardRateInfo.builder()
                     .awardId(strategyDetail.getAwardId())

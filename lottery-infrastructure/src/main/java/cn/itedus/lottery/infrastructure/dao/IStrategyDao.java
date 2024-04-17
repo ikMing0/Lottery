@@ -14,4 +14,5 @@ public interface IStrategyDao {
 
     Strategy queryStrategy(Long strategyId);
 
+    void insert(Strategy req);
 }

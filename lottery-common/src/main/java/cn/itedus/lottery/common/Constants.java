@@ -15,6 +15,8 @@ import lombok.Setter;
 
 public class Constants {
 
+    @AllArgsConstructor
+    @Getter
     public enum ResponseCode {
         SUCCESS("0000", "成功"),
         UN_ERROR("0001","未知失败"),
@@ -24,20 +26,48 @@ public class Constants {
         private String code;
         private String info;
 
-        ResponseCode(String code, String info) {
+        public void setCode(String code) {
             this.code = code;
+        }
+
+        public void setInfo(String info) {
             this.info = info;
         }
-
-        public String getCode() {
-            return code;
-        }
-
-        public String getInfo() {
-            return info;
-        }
-
     }
+
+    @AllArgsConstructor
+    @Getter
+    public enum ActivityState {
+
+        /** 1：编辑 */
+        EDIT(1, "编辑"),
+        /** 2：提审 */
+        ARRAIGNMENT(2, "提审"),
+        /** 3：撤审 */
+        REVOKE(3, "撤审"),
+        /** 4：通过 */
+        PASS(4, "通过"),
+        /** 5：运行(活动中) */
+        DOING(5, "运行(活动中)"),
+        /** 6：拒绝 */
+        REFUSE(6, "拒绝"),
+        /** 7：关闭 */
+        CLOSE(7, "关闭"),
+        /** 8：开启 */
+        OPEN(8, "开启");
+
+        private Integer code;
+        private String info;
+
+        public void setCode(Integer code) {
+            this.code = code;
+        }
+
+        public void setInfo(String info) {
+            this.info = info;
+        }
+    }
+
 
     /**
      * 抽奖策略模式：总体概率、单项概率
@@ -172,5 +202,6 @@ public class Constants {
             this.info = info;
         }
     }
+
 
 }
